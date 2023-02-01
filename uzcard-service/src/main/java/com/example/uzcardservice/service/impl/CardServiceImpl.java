@@ -50,7 +50,7 @@ public class CardServiceImpl implements CardService {
                 return new CommonResultData<>(CommonResponse.CARD_AMOUNT_INCORRECT.getCode(), CommonResponse.CARD_AMOUNT_INCORRECT.getMsg());
             }
             senderCard.setCardBalance(senderCard.getCardBalance() - transactionRequestDTO.getAmount());
-            receiverCard.setCardBalance(senderCard.getCardBalance() + transactionRequestDTO.getAmount());
+            receiverCard.setCardBalance(receiverCard.getCardBalance() + transactionRequestDTO.getAmount());
             cardRepository.save(senderCard);
             cardRepository.save(receiverCard);
             Transaction transaction = Transaction.builder()

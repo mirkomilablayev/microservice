@@ -1,0 +1,28 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE
+          gateway.route.RouteDefinitionLocator: INFO
+    root: INFO
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/**
+          uri: lb://PAYMENT-SERVICE
+        - id: UZCARD-SERVICE
+          predicates:
+            - Path=/uzcard/**
+          uri: lb://UZCARD-SERVICE
+server:
+  port: 7777

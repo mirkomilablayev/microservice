@@ -1,15 +1,16 @@
-package com.example.uzcardservice;
+package com.example.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import reactor.core.publisher.Mono;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class UzcardServiceApplication {
+public class GatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UzcardServiceApplication.class, args);
+        SpringApplication.run(GatewayApplication.class, args);
     }
 
 }
